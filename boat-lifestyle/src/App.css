@@ -8,7 +8,7 @@
   font-size: 150px;
   color: red;
   position: absolute;
-  top: 4%;
+  top: 3%;
 }
 
 #btn2{
@@ -17,4 +17,14 @@
 
 #btn1{
   left: 10px;
+}
+
+#hide{
+  display: none;
+  position: absolute;
+  top: 80px;
+}
+
+#h:hover + #hide{
+  display: block;
 }

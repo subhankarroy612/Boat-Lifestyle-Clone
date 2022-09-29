@@ -1,8 +1,8 @@
 import { Box, Button, Center, Divider, HStack, Image, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
-const Slb = ({ id, image, title, rating, reviews, dprice, price, save }) => {
-    return (<Box borderRadius='10px' key={id} boxSize='md' bg='#E3E3E3'>
+const Slb = ({ image, title, rating, reviews, dprice, price, save }) => {
+    return (<Box borderRadius='10px' boxSize='md' bg='#E3E3E3'>
         <Center>
             <Image src={image} h="240px" />
         </Center>

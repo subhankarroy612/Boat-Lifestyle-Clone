@@ -1,5 +1,6 @@
 import { Box, Button, Center, Container, Divider, Flex, Heading, HStack, Image, SimpleGrid, Tab, TabList, TabPanel, TabPanels, Tabs, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import Blog from '../Components/Blog';
 import Nl from '../Components/Nl';
 import Sbc from '../Components/sbc';
 import Slb from '../Components/Slb';
@@ -435,7 +436,6 @@ let video = [
     }
 ]
 
-
 let nl = [
     {
         id: 1,
@@ -484,7 +484,7 @@ let nl2 = [
         id: 1,
         image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image_300x.png?v=1655534170',
         title: 'Stone 190 DC Edition',
-        price: '₹ 999',
+        price: '₹ 6,999',
         dprice: '₹ 19,990',
         save: '₹ 12991 ',
     },
@@ -522,6 +522,71 @@ let nl2 = [
     },
 ]
 
+let nl3 = [
+    {
+        id: 1,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/CA131-main_300x.png?v=1639987804',
+        title: 'boAt Airdopes 131',
+        price: '₹ 6,999',
+        dprice: '₹ 19,990',
+        save: '₹ 12991 ',
+    },
+    {
+        id: 2,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM131-main_300x.png?v=1639988622',
+        title: 'boAt Airdopes 131 Iron',
+        price: '₹ 1,299',
+        dprice: '₹ 3,499',
+        save: '₹ 2200  ',
+    },
+    {
+        id: 3,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/DisneyStormPackaging3.1591_300x.png?v=1640110480',
+        title: 'boAt Watch Storm ',
+        price: '₹ 2,599',
+        dprice: '₹ 4,990',
+        save: '₹ 2391',
+    },
+    {
+        id: 4,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/190a_300x.png?v=1640070142',
+        title: 'boAt Stone 190 - Stark',
+        price: '₹ 999',
+        dprice: '₹ 2,499',
+        save: '₹ 1500  ',
+    },
+    {
+        id: 5,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/450ca_300x.png?v=1639990534',
+        title: 'boAt Rockerz 450 ',
+        price: '₹ 1,399',
+        dprice: '₹ 5,990',
+        save: '₹ 4591  ',
+    },
+]
+
+let blog = [
+    {
+        id:1,
+        image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/blog_1_600x.webp?v=1663587253',
+        title:'Earphones Buying Guide - Everything You Need To Know'
+    },
+    {
+        id:2,
+        image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/blog_2_600x.webp?v=1663587325',
+        title:'The Ultimate Smartwatch Guide - Get The World On'
+    },
+    {
+        id:3,
+        image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/blog_3_600x.webp?v=1663587423',
+        title:'boAt & DC Comics Join Hands'
+    },
+    {
+        id:4,
+        image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/articles/Artboard_1_copy_600x.png?v=1663235273',
+        title:'Into The Metaverse We FloAt…'
+    },
+]
 
 
 let id;
@@ -536,7 +601,6 @@ const Content = () => {
         if (crauser == crauserImages.length - 1) setCrauser(0);
         else
             setCrauser(crauser + 1)
-        console.log(crauser);
     }, 2000)
 
 
@@ -552,7 +616,7 @@ const Content = () => {
 
 
     return (
-        <div style={{ height: '1000vw', marginTop: "5px" }}>
+        <div style={{ marginTop: "5px" }}>
             <Container style={{ position: 'relative' }} h="auto" maxW="95%">
                 <Box>
                     <Image src={crauserImages[crauser].url} />
@@ -563,7 +627,7 @@ const Content = () => {
                 <Flex gap={10} marginTop="40px">
                     {
                         slb.map((ele) => {
-                            return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                            return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                         })
                     }
                 </Flex>
@@ -571,7 +635,7 @@ const Content = () => {
                 <SimpleGrid columns={7} spacing={10} marginTop="40px">
                     {
                         sbc.map((ele) => {
-                            return <Sbc id={ele.id} title={ele.title} image={ele.image} />
+                            return <Sbc key={ele.id} title={ele.title} image={ele.image} />
                         })
                     }
                 </SimpleGrid>
@@ -590,7 +654,7 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     bs.map((ele) => {
-                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                                     })
                                 }
                             </Flex>
@@ -599,7 +663,7 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     bs2.map((ele) => {
-                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                                     })
                                 }
                             </Flex>
@@ -608,7 +672,7 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     bs3.map((ele) => {
-                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                                     })
                                 }
                             </Flex>
@@ -617,7 +681,7 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     bs4.map((ele) => {
-                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                                     })
                                 }
                             </Flex>
@@ -626,7 +690,7 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     bs5.map((ele) => {
-                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
+                                        return <Slb dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} rating={ele.rating} reviews={ele.reviews} />
                                     })
                                 }
                             </Flex>
@@ -637,7 +701,7 @@ const Content = () => {
                 <Flex gap={10} marginTop="40px">
                     {
                         video.map((ele) => {
-                            return <Video dprice={ele.dprice} price={ele.price} id={ele.id} url={ele.url} title={ele.title} />
+                            return <Video dprice={ele.dprice} price={ele.price} key={ele.id} url={ele.url} title={ele.title} />
                         })
                     }
                 </Flex>
@@ -654,7 +718,25 @@ const Content = () => {
                             <Flex gap={10} marginTop="40px">
                                 {
                                     nl.map((ele) => {
-                                        return <Nl dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} />
+                                        return <Nl dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} />
+                                    })
+                                }
+                            </Flex>
+                        </TabPanel>
+                        <TabPanel>
+                            <Flex gap={10} marginTop="40px">
+                                {
+                                    nl2.map((ele) => {
+                                        return <Nl dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} />
+                                    })
+                                }
+                            </Flex>
+                        </TabPanel>
+                        <TabPanel>
+                            <Flex gap={10} marginTop="40px">
+                                {
+                                    nl3.map((ele) => {
+                                        return <Nl dprice={ele.dprice} price={ele.price} save={ele.save} key={ele.id} image={ele.image} title={ele.title} />
                                     })
                                 }
                             </Flex>
@@ -663,8 +745,18 @@ const Content = () => {
                     </TabPanels>
                 </Tabs>
 
-
+                <VStack alignItems='start' marginTop="40px" w='full' bg='#1b1a1a'  p='40px'>
+                    <Flex  fontSize='23px' as='b' color='white'>bo<Text color='red'>A</Text>t Blogs</Flex>
+                    <Flex gap={10}>
+                        {
+                            blog.map((ele)=>{
+                                return  <Blog key={ele.id} image={ele.image} title={ele.title}/>
+                            })
+                        }
+                    </Flex>
+                </VStack>
             </Container>
+                
         </div>
     );
 }

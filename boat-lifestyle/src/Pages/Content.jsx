@@ -1,8 +1,10 @@
 import { Box, Button, Center, Container, Divider, Flex, Heading, HStack, Image, SimpleGrid, Tab, TabList, TabPanel, TabPanels, Tabs, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import Nl from '../Components/Nl';
 import Sbc from '../Components/sbc';
 import Slb from '../Components/Slb';
 import Video from '../Components/Video';
+
 
 let crauserImages = [
     {
@@ -397,53 +399,165 @@ let bs5 = [
 
 let video = [
     {
-        id:1,
-        url:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_aNMbCNA29Xi8HUyLtIJkh_card_thumbnail.mp4?v=5829238798220611967',
-        title:'boAt Airdopes 190',
-        price:'₹ 3499',
-        dprice:'₹ 1299'
+        id: 1,
+        url: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_aNMbCNA29Xi8HUyLtIJkh_card_thumbnail.mp4?v=5829238798220611967',
+        title: 'boAt Airdopes 190',
+        price: '₹ 3499',
+        dprice: '₹ 1299'
     },
     {
-        id:2,
-        url:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_Icbu8Gdl3GYtBy9W97q10_card_thumbnail.mp4?v=6497212793750359622',
-        title:'boAt Storm Pro Call',
-        price:'₹ 1799',
-        dprice:'₹ 7990'
+        id: 2,
+        url: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_Icbu8Gdl3GYtBy9W97q10_card_thumbnail.mp4?v=6497212793750359622',
+        title: 'boAt Storm Pro Call',
+        price: '₹ 1799',
+        dprice: '₹ 7990'
     },
     {
-        id:3,
-        url:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_rfcpupPH91wNHtK3BOvFW_card_thumbnail.mp4?v=3606890552447842088',
-        title:'boAt Xtend Walk',
-        price:'₹ 2999',
-        dprice:'₹ 6990'
+        id: 3,
+        url: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_rfcpupPH91wNHtK3BOvFW_card_thumbnail.mp4?v=3606890552447842088',
+        title: 'boAt Xtend Walk',
+        price: '₹ 2999',
+        dprice: '₹ 6990'
     },
     {
-        id:4,
-        url:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_rq_O5tqSZIIgR13t0gUaN_card_thumbnail.mp4?v=8992424439691853575',
-        title:'boAt Airdopes 141 Pro',
-        price:'₹ 1499',
-        dprice:'₹ 2990'
+        id: 4,
+        url: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_rq_O5tqSZIIgR13t0gUaN_card_thumbnail.mp4?v=8992424439691853575',
+        title: 'boAt Airdopes 141 Pro',
+        price: '₹ 1499',
+        dprice: '₹ 2990'
     },
     {
-        id:5,
-        url:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_lUtZiAPq1HANGe2gvJovW_card_thumbnail.mp4?v=4338432963482069035',
-        title:'boAt Wave Select Smartwatch',
-        price:'₹ 2499',
-        dprice:'₹ 6990'
+        id: 5,
+        url: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/quinn_lUtZiAPq1HANGe2gvJovW_card_thumbnail.mp4?v=4338432963482069035',
+        title: 'boAt Wave Select Smartwatch',
+        price: '₹ 2499',
+        dprice: '₹ 6990'
     }
 ]
 
 
+let nl = [
+    {
+        id: 1,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/orion_300x.png?v=1664177169',
+        title: 'boAt Aavante Orion',
+        price: '₹ 6,999',
+        dprice: '₹ 19,990',
+        save: '₹ 12991 ',
+    },
+    {
+        id: 2,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_85232e56-016f-4201-8612-d70525d301b5_400x.png?v=1663821109',
+        title: 'boAt Airdopes 190',
+        price: '₹ 1,299',
+        dprice: '₹ 3,499',
+        save: '₹ 2200  ',
+    },
+    {
+        id: 3,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/B_61732ba6-8448-4c40-858d-557839daff97_300x.png?v=1663758990',
+        title: 'boAt Airdopes 393 ANC',
+        price: '₹ 2,599',
+        dprice: '₹ 4,990',
+        save: '₹ 2391',
+    },
+    {
+        id: 4,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/245pro3_300x.png?v=1663584969',
+        title: 'boAt Rockerz 245 Pro',
+        price: '₹ 999',
+        dprice: '₹ 2,499',
+        save: '₹ 1500  ',
+    },
+    {
+        id: 5,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1_f28099c2-bf34-48f9-88dd-dee880b36ec9_300x.png?v=1663246010',
+        title: 'boAt Wave Beat',
+        price: '₹ 1,399',
+        dprice: '₹ 5,990',
+        save: '₹ 4591  ',
+    },
+]
+
+let nl2 = [
+    {
+        id: 1,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image_300x.png?v=1655534170',
+        title: 'Stone 190 DC Edition',
+        price: '₹ 999',
+        dprice: '₹ 19,990',
+        save: '₹ 12991 ',
+    },
+    {
+        id: 2,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_3_f3ee5c27-4f14-4159-9fb2-dc60e7d6ec66_300x.png?v=1655536230',
+        title: 'Rockerz 450 - Batman',
+        price: '₹ 1,299',
+        dprice: '₹ 3,499',
+        save: '₹ 2200  ',
+    },
+    {
+        id: 3,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1_5_300x.png?v=1655534211',
+        title: 'Rockerz 450 DC edition',
+        price: '₹ 2,599',
+        dprice: '₹ 4,990',
+        save: '₹ 2391',
+    },
+    {
+        id: 4,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image-3_e05a4bee-499f-42da-8db5-e3921a185f5c_300x.png?v=1655526604',
+        title: 'Airdopes 131 DC Edition',
+        price: '₹ 999',
+        dprice: '₹ 2,499',
+        save: '₹ 1500  ',
+    },
+    {
+        id: 5,
+        image: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image-3_55f3214a-ec1f-4764-9efe-1369c6668755_300x.png?v=1655542199',
+        title: 'Stone 190 Wonder',
+        price: '₹ 1,399',
+        dprice: '₹ 5,990',
+        save: '₹ 4591  ',
+    },
+]
+
+
+
+let id;
+
 const Content = () => {
-    let [crauser, setCrauser] = useState(0)
+    let [crauser, setCrauser] = useState(0);
+
+    if (id) {
+        clearInterval(id)
+    }
+    id = setInterval(() => {
+        if (crauser == crauserImages.length - 1) setCrauser(0);
+        else
+            setCrauser(crauser + 1)
+        console.log(crauser);
+    }, 2000)
+
+
+    let handleClick = (n) => {
+
+        if (crauser == 0 && n == -1) {
+            setCrauser(crauserImages.length - 1)
+        } else if (crauser == crauserImages.length - 1 && n == +1) {
+            setCrauser(0)
+        } else
+            setCrauser(crauser + n)
+    }
+
 
     return (
         <div style={{ height: '1000vw', marginTop: "5px" }}>
             <Container style={{ position: 'relative' }} h="auto" maxW="95%">
                 <Box>
                     <Image src={crauserImages[crauser].url} />
-                    <button onClick={() => setCrauser(crauser === 0 ? crauserImages.length - 1 : crauser - 1)} id='btn1' className='btn'>‹</button>
-                    <button onClick={() => setCrauser(crauser === crauserImages.length - 1 ? 0 : crauser + 1)} id='btn2' className='btn'>›</button>
+                    <button onClick={() => handleClick(-1)} id='btn1' className='btn'>‹</button>
+                    <button onClick={() => handleClick(1)} id='btn2' className='btn'>›</button>
                 </Box>
                 <Text fontSize="28px" marginTop="40px">SAIL WITH BOAT</Text>
                 <Flex gap={10} marginTop="40px">
@@ -528,7 +642,26 @@ const Content = () => {
                     }
                 </Flex>
 
+                <Tabs marginTop="40px" isLazy={true} size='lg'>
+                    <TabList color='gray'>
+                        <Tab>New Launches</Tab>
+                        <Tab>DC</Tab>
+                        <Tab>Marvel</Tab>
+                    </TabList>
 
+                    <TabPanels>
+                        <TabPanel>
+                            <Flex gap={10} marginTop="40px">
+                                {
+                                    nl.map((ele) => {
+                                        return <Nl dprice={ele.dprice} price={ele.price} save={ele.save} id={ele.id} image={ele.image} title={ele.title} />
+                                    })
+                                }
+                            </Flex>
+                        </TabPanel>
+                       
+                    </TabPanels>
+                </Tabs>
 
 
             </Container>

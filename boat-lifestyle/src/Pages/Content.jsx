@@ -601,7 +601,6 @@ const Content = () => {
         if (crauser == crauserImages.length - 1) setCrauser(0);
         else
             setCrauser(crauser + 1)
-        console.log(crauser);
     }, 2000)
 
 
@@ -757,9 +756,7 @@ const Content = () => {
                     </Flex>
                 </VStack>
             </Container>
-                <Box bg='red' w='full' textAlign='center' p='20px' marginTop="40px">
-                    <Text margin='auto' w='60%' color='white'>India's fastest growing audio & wearables brand. The most incredible range of wireless earphones, earbuds, headphones, smart watches, and home audio. From workouts to adventures, boAt will get you sailing!</Text>
-                </Box>
+                
         </div>
     );
 }

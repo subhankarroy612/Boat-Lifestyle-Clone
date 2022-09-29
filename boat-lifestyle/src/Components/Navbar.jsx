@@ -19,8 +19,8 @@ export default function Navbar() {
             <Spacer />
             <Flex gap={10}>
                 <Input type="text" />
-                <Text as="b" fontSize='18px'>Login</Text>
-                <Text as="b" fontSize='18px'>Cart</Text>
+                <Image w='20px' h='25px' src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
+                <Image w='20px' h='25px' src="https://cdn-icons-png.flaticon.com/512/2838/2838838.png" />
             </Flex>
         </Flex>
         <Divider />

@@ -1,7 +1,22 @@
-import { Box, Button, Container, Divider, Flex, HStack, Image, Input, List, ListItem, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Container, Divider, Flex, HStack, Image, Input, List, ListItem, Spacer, Text, VStack } from "@chakra-ui/react";
+import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { CartContext } from "../CartContextProvider/CartContext";
 
 export default function Navbar() {
+
+    let { cart } = useContext(CartContext)
+
+    let displaySidebar = (pos) => {
+        if (pos === 'open') {
+            document.querySelector(".parent").style.right = '0';
+            document.querySelector("body").style.overflowY = 'hidden';
+        } else {
+            document.querySelector(".parent").style.right = '-25%';
+            document.querySelector("body").style.overflowY = 'scroll';
+        }
+    }
+
     return <Container maxW="100%" id="navbar" bg="white" >
         <Flex p="20px">
             <Box>
@@ -23,21 +38,42 @@ export default function Navbar() {
             <Flex gap={3} justifyContent='center' alignItems='center'>
                 <Input bg='#f2f2f2' w='300px' placeholder="Search..." borderRadius='50px' type="text" />
                 <Link to='/login'>
-                    <Image w='20px' h='20px' src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
+                    <Image cursor='pointer' w='20px' h='20px' src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
                 </Link>
 
-                {/* <VStack>
-                <Image onClick={()=><Link to='/login'></Link>} id="h" w='20px' h='25px' src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
-                    <Box bg='white' id="hide" p='10px' w='200px' border='1px solid black'>
-                        <Text as='b' color='red'>Hi boAthead!</Text>
-                        <Button bg='red' color='white' w='full'>Login</Button>
-                    </Box>
-                </VStack> */}
-                <Image w='20px' h='20px' src="https://cdn-icons-png.flaticon.com/512/2838/2838838.png" />
+                <button bg='transparent'><Image onClick={() => displaySidebar('open')} w='20px' h='20px' src="https://cdn-icons-png.flaticon.com/512/2838/2838838.png" /></button>
             </Flex>
         </Flex>
         <Divider />
-    </Container>
+        <Box className="parent" w='25%'>
+            <Flex alignItems='center' w='full' bg='red'>
+                <Text paddingLeft={4} fontSize={20} color='white'>Your Cart(Cart)</Text>
+                <Spacer />
+                <Button color='white' bg='red' onClick={() => displaySidebar('close')} fontSize={18}>X</Button>
+            </Flex>
+            <Text bg='black' color='white' p={1} fontSize={14}>Free Shipping sitewide | Cash On Delivery available for order value upto ₹3000</Text>
+             
+
+            { cart.image && <div>
+                <Center>
+                    <Flex marginTop={20}>
+                        <Image w='150px' src={cart.image} />
+                        <VStack>
+                            <Text as='b'>{cart.title}</Text>
+                            <Flex>
+                                <Text color='red' as='b'>{cart.dprice} |</Text>
+                                <Text as='s' paddingLeft={5}>{cart.price}</Text>
+                            </Flex>
+                        </VStack>
+                    </Flex>
+                </Center>
+                <Box p={4}>
+                    <Button marginTop={20} bg='red' color='white' w='full'>ADD TO CART</Button>
+                </Box>
+            </div>}
+        </Box>
+
+    </Container >
 
 }
 

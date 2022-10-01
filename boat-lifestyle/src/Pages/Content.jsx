@@ -618,7 +618,7 @@ const Content = () => {
     return (
         <div style={{ marginTop: "5px" }}>
             <Container style={{ position: 'relative' }} h="auto" maxW="95%">
-                <Box>
+                <Box marginTop={20}>
                     <Image src={crauserImages[crauser].url} />
                     <button onClick={() => handleClick(-1)} id='btn1' className='btn'>‹</button>
                     <button onClick={() => handleClick(1)} id='btn2' className='btn'>›</button>

@@ -1,7 +1,16 @@
 import { Box, Button, Center, Divider, HStack, Image, Text, VStack } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../CartContextProvider/CartContext';
 
 const Nl = ({ image, title, dprice, price, save }) => {
+
+    let { cart, setCart } = useContext(CartContext)
+
+    let handleClick = () => {
+        document.querySelector(".parent").style.right = '0';
+        setCart({ image: image, title: title, dprice: dprice, price: price })
+    }
+
     return (<Box borderRadius='10px' boxSize='md' bg='#E3E3E3'>
         <Center>
             <Image src={image} h="240px" />
@@ -14,7 +23,7 @@ const Nl = ({ image, title, dprice, price, save }) => {
                 <Text as='s'>{price}</Text>
             </HStack>
             <Text>You Save: {save}</Text>
-            <Button w='full' bg='tomato' color='white' >ADD TO CART</Button>
+            <Button onClick={()=>handleClick()} w='full' bg='tomato' color='white' >ADD TO CART</Button>
         </VStack>
     </Box>
     );

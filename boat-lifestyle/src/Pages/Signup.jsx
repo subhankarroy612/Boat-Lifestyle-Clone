@@ -33,7 +33,7 @@ export default function Signup() {
 
     let { firstName, lastName, email, password } = obj
 
-    return (<Container maxW='60%'>
+    return (<Container maxW='60%' marginTop={55}>
         <Center>
             <VStack spacing={6} marginBottom='100px'>
                 <Text fontSize='47px'>Register</Text>

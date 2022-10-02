@@ -31,7 +31,7 @@ export default function Login() {
 
 
 
-    return (<Container maxW='60%'>
+    return (<Container maxW='60%' marginTop={50}>
         <Center>
             <VStack spacing={6} marginBottom='100px'>
                 <Text fontSize='47px'>Login</Text>

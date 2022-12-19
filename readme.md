@@ -2,7 +2,7 @@
 # Boat-Lifestyle Clone
 
 <p>
-This was a individual construct week project at Masai School.
+This was an individual construct week project at Masai School.
 Goal was to create a frontend application with a time constraint of 4 days.
 </p>
 

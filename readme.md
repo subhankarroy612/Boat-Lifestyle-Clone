@@ -27,16 +27,16 @@ ___
  ## Glipms of project
 __
 
-   - ###Homepage 
+   - ### Homepage 
 <img src="https://i.imgur.com/xu1Gisb.png" alt="homepage" />
 
-
-   - ###Login 
+ 
+   - ### Login 
 <img src="https://i.imgur.com/cHn6FIE.png" alt="login" />
 
 
 
-   - ###Sign up 
+   - ### Sign up 
 <img src="https://i.imgur.com/q05zuF1.png" alt="singup" />
 
 
